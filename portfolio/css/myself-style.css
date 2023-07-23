@@ -1,0 +1,30 @@
+/* NAVBAR */
+#nav{
+    background-color: rgb(0, 0, 0);
+    padding: 0 8%;
+    position: sticky;
+    top: 0;
+}
+#nav a{
+    color: aliceblue;
+}
+#nav a:hover{
+    font-weight: 600;
+    color: aqua;
+}
+#logo{
+    margin: 0;
+    padding: 0;
+}
+#logo:hover{
+    transform: scale(1.5,1.5);
+}
+#drkbtn{
+    display: inline-block;
+    position: absolute;
+    right: 150px;
+    border-radius: 50%;
+}
+#drkbtn:hover{
+    background-color: rgb(27, 27, 27);
+}

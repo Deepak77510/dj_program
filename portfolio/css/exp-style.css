@@ -1,0 +1,75 @@
+html{
+    scroll-behavior: smooth;
+}
+*{
+    margin: 0 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+:root{
+    --body-color: #cecece;
+    --icon-color: #cecece;
+    --bg-color: #2e2e2e;
+    --font-color:#000;
+    --pro-color: rgb(255, 0, 170);
+    --pre-color: rgb(0, 119, 255);
+    --post-color:rgb(45, 114, 102);
+}
+.dark-theme{
+    --body-color: #2c2c2c;
+    --icon-color: #2c2c2c;
+    --bg-color: #c2c1c1;
+    --font-color:#fff;
+    --pro-color: rgb(0, 119, 255);
+    --pre-color: rgb(255, 0, 170);
+    --post-color:rgb(12, 73, 12);
+}
+/* NAVBAR */
+#nav{
+    background-color: rgb(0, 0, 0);
+    padding: 0 8%;
+    position: sticky;
+    top: 0;
+}
+#nav a{
+    color: aliceblue;
+}
+#nav a:hover{
+    font-weight: 600;
+    color: aqua;
+}
+#logo{
+    margin: 0;
+    padding: 0;
+}
+#logo:hover{
+    transform: scale(1.5,1.5);
+}
+#drkbtn{
+    display: inline-block;
+    position: absolute;
+    right: 150px;
+    border-radius: 50%;
+}
+/* HOME */
+#h1-home{
+    font-size: 30px;
+    font-weight: 600;
+    background-image: url(../portfolio/images/fontBack.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* MEDIAQUERY */
+@media screen and (max-width: 991px){
+    #drkbtn{
+        position: absolute;
+        top: 20px;
+        left: 150px;
+    }
+}

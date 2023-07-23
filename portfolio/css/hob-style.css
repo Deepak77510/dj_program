@@ -1,0 +1,239 @@
+html{
+    scroll-behavior: smooth;
+}
+*{
+    margin: 0 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+:root{
+    --body-color: #cecece;
+    --icon-color: #cecece;
+    --bg-color: #2e2e2e;
+    --font-color:#000;
+    --pro-color: rgb(255, 0, 170);
+    --pre-color: rgb(0, 119, 255);
+    --post-color:rgb(45, 114, 102);
+}
+.dark-theme{
+    --body-color: #000000;
+    --icon-color: #2c2c2c;
+    --bg-color: #c2c1c1;
+    --font-color:#fff;
+    --pro-color: rgb(0, 119, 255);
+    --pre-color: rgb(255, 0, 170);
+    --post-color:rgb(12, 73, 12);
+}
+/* NAVBAR */
+#nav{
+    background-color: var(--bg-color);
+    padding: 0 8%;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+}
+#nav a{
+    color: var(--body-color);
+}
+#nav a:hover{
+    font-weight: 600;
+    color: aqua;
+}
+#logo{
+    margin: 0;
+    padding: 0;
+}
+#logo:hover{
+    transform: scale(1.5,1.5);
+}
+#drkbtn{
+    display: inline-block;
+    position: absolute;
+    right: 150px;
+    border-radius: 50%;
+}
+/* HGOME PAGE */
+#home{
+    padding: 10px;
+    overflow: hidden;
+    background: var(--body-color);
+}
+.wrapper{
+    /* background: red; */
+    margin: 100px auto;
+    max-width: 1100px;
+}
+.wrapper nav{
+    display: flex;
+    justify-content: center;
+}
+nav .items{
+    display: flex;
+    max-width: 720px;
+    width: 100%;
+    justify-content: space-between;
+    /* background: blue; */
+}
+nav .items .item{
+    padding: 7px 25px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #007bff;
+    border: 2px solid #007bff;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+nav .items .active,
+nav .items .item:hover{
+    color: #fff;
+    background: #007bff;
+}
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+.gallery .image{
+    padding: 7px;
+    width: calc(100% / 4);
+}
+.gallery .image.hide{
+    display: none;
+}
+.gallery .image.show{
+    /* display: block; */
+    animation: animate 0.4s ease;
+}
+/* Show Image start */
+.preview-box{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    background: rgb(255, 255, 255);
+    max-width: 700px;
+    width: 100%;
+    z-index: 5;
+    opacity: 0;
+    pointer-events: none;
+    border-radius: 3px;
+    padding: 0 5px 5px 5px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+.preview-box.show{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+    transition: all 0.3s ease;
+}
+.preview-box .details{
+    display: flex;
+    align-items: center;
+    padding: 13px 15px 13px 10px;
+    justify-content: space-between;
+}
+.preview-box .details .title{
+    display: flex;
+    font-size: 18px;
+    font-weight: 400;
+}
+.details .title p{
+    margin-left: 5px;
+    font-weight: 500;
+}
+.details .icon{
+    color: #007bff;
+    font-size: 30px;
+    cursor: pointer;
+}
+.preview-box .image-box{
+    display: flex;
+    width: 100%;
+}
+.image-box img{
+    width: 100%;
+    border-radius: 0 0 3px 3px;
+}
+.shadow{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    display: none;
+    background: rgba(0, 0, 0,0.4);
+}
+.shadow.show{
+    display: block;
+}
+/* Show Image end */
+@keyframes animate{
+    0%{
+        transform: scale(0.5);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+.gallery .image span{
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+}
+.gallery .image img{
+    width: 100%;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.gallery .image:hover img{
+    transform: scale(1.1);
+}
+
+/* mediaQuries */
+@media screen and (max-width: 991px){
+    #drkbtn{
+        position: absolute;
+        top: 20px;
+        left: 150px;
+    }
+}
+@media screen and (max-width: 1000px){
+    .gallery .image{
+        /* padding: 7px; */
+        width: calc(100% / 3);
+    }
+}
+@media screen and (max-width: 800px){
+    .gallery .image{
+        /* padding: 7px; */
+        width: calc(100% / 2);
+    }
+}
+@media screen and (max-width: 700px){
+    nav .items{
+        /* display: flex; */
+        max-width: 600px;
+        /* width: 100%; */
+        /* justify-content: space-between; */
+        /* background: blue; */
+    }
+    nav .items .item{
+        padding: 7px 15px;
+    }
+}
+@media screen and (max-width: 600px){
+    nav .items{
+       flex-wrap: wrap;
+       justify-content: center;
+    }
+    nav .items .item{
+        margin: 5px;
+    }
+    .gallery .image{
+        width: 100%;
+    }
+}
