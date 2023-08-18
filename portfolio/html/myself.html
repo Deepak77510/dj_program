@@ -32,12 +32,42 @@
               <li class="nav-item">
                 <a class="nav-link active" href="../html/experience.html">Experience</a>
               </li>
-              <li class="nav-item" id="drkbtn">
-                <a class="nav-link active img-fluid" href="#"><i class="bi bi-sun-fill"></i></a>
+              <li class="nav-item">
+                <a class="nav-link active img-fluid" href="#"><i class="bi bi-brightness-high-fill" id="drkbtn"></i></a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
+      <!-- HOME -->
+      <div class="container-fluid" id="hob-container">
+        <div class="row justify-content-center">
+          <div class="col-md-5" id="hob-con">
+            <h2 id="hob-h2">My Self</h2>
+            <p>I am a highly skilled full-stack web developer with expertise in both front-end and back-end technologies.
+               Proficient in HTML, CSS, JavaScript, and various frameworks like React and Node.js,
+                I create dynamic and responsive user interfaces. My database management skills include SQL and databases 
+                like MySQL and MongoDB. With a strong problem-solving mindset and continuous learning attitude,
+                 I stay updated on the latest trends and best practices in web development.
+                 I have a passion for creating innovative and efficient web applications. 
+                 My portfolio reflects my dedication to delivering high-quality, user-centric solutions.</p>
+          </div>
+          <!-- <div class="col-md-6">
+            <video src="../images/video/Hasu thila fer Hasi deba amar India (Mantu Churia) Proud to be an Indian.mp4" class="object-fit-cover" height="100%" width="100%" controls muted autoplay></video>
+          </div> -->
+        </div>
+      </div>
+      <script>
+          //BlACK&WHITE
+          const toggle = document.getElementById("drkbtn");
+        toggle.addEventListener('click', function(){
+            this.classList.toggle('bi-moon');
+          // colorchange
+              toggle.onclick = function(){
+                  this.classList.toggle("dark-btn-on");
+                  document.body.classList.toggle("dark-theme");
+              }
+        })
+      </script>
 </body>
 </html>

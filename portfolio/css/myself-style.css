@@ -25,6 +25,20 @@
     right: 150px;
     border-radius: 50%;
 }
-#drkbtn:hover{
-    background-color: rgb(27, 27, 27);
+/* Home */
+#hob-container{
+    background-color: aqua;
+    padding-bottom: 80px;
+}
+#hob-con{
+    text-align: center;
+    color: rgb(15, 59, 141);
+    font-size: 20px;
+}
+#hob-h2{
+    color: black;
+    font-size: 40px;
+    font-weight: 600;
+    margin: 40px 0;
+    font-family: 'Times New Roman', Times, serif;
 }

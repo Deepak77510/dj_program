@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Solar System</title>
+    </head>
+    <style>
+        body{
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            overflow: hidden;
+        }
+        .container{
+            font-size: 10px;
+            height: 40em;
+            width: 40em;
+            position: relative;
+            /* border: 1px solid white; */
+        }
+        .sun{
+            position: absolute;
+            top: 15em;
+            left: 15em;
+            width: 10em;
+            height: 10em;
+            background-color: yellow;
+            border-radius: 50%;
+            box-shadow: 0 0 10em rgb(255, 238, 0);
+        }
+        .earth, .moon{
+            position: absolute;
+            border-style: solid;
+            border-color: white transparent transparent transparent;
+            border-width: 0.1em 0.1em 0 0;
+            border-radius: 50%;
+        }
+        .earth{
+            top: 5em;
+            left: 5em;
+            height: 30em;
+            width: 30em;
+            animation: orbit 36.5s linear infinite;
+        }
+        .moon{
+            top: 0;
+            right: 0;
+            height: 8em;
+            width: 8em;
+            animation: orbit 2.7s linear infinite;
+        }
+        .earth::before, .moon::before{
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+        }
+        .earth::before{
+            top: 2.8em;
+            right: 2.8em;
+            height: 3em;
+            width: 3em;
+            background-color: rgb(0, 68, 255);
+        }
+        .moon::before{
+            top: 0.8em;
+            right: 0.2em;
+            height: 1.2em;
+            width: 1.2em;
+            background-color: silver;
+            box-shadow: 0 0 2em rgb(247, 247, 247);
+        }
+        @keyframes orbit {
+            to{
+                transform: rotate(360deg);
+            }
+        }
+
+        /* stars */
+        @import url(https://fonts.googleapis.com/css?family=Oribitron:700);
+        #space, .stars{
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        .stars{
+            background-image: radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+                                radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+                                radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
+                                radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+                                radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0)),
+                                radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            animation: zoom 5s infinite;
+            opacity: 0;
+        }
+        .stars:nth-child(1){
+            background-position: 50% 50%;
+            animation-delay: 0s;
+        }
+        .stars:nth-child(2){
+            background-position: 20% 60%;
+            animation-delay: 1s;
+        }
+        .stars:nth-child(3){
+            background-position: -20% -30%;
+            animation-delay: 2s;
+        }
+        .stars:nth-child(4){
+            background-position: 20% 60%;
+            animation-delay: 3s;
+        }
+        .stars:nth-child(5){
+            background-position: -20% 30%;
+            animation-delay: 4s;
+        }
+        @keyframes zoom{
+            0%{
+                opacity: 0;
+                transform: scale(2.8);
+                animation-timing-function: ease-in;
+            }
+            85%{
+                opacity: 1;
+                transform: scale(0.5);
+                animation-timing-function: linear;
+            }
+            100%{
+                opacity: 0;
+                transform: scale(3.5);
+                /* animation-timing-function: ease-in; */
+            }
+        }
+    </style>
+    <body>
+        <div id="space">
+            <div class="stars"></div>
+            <div class="stars"></div>
+            <div class="stars"></div>
+            <div class="stars"></div>
+            <div class="stars"></div>
+        </div>
+        <div class="container">
+            <div class="sun"></div>
+            <div class="earth">
+                <div class="moon"></div>
+            </div>
+        </div>
+    </body>
+</html>

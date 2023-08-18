@@ -70,7 +70,8 @@ html{
     color: goldenrod;
 }
 #name{
-    color: rgb(255, 0, 200);
+    color: #088178;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 700;
     font-size: 60px;
     cursor: pointer;
@@ -89,8 +90,11 @@ html{
     border-color: #ff0000;
 }
 .img-container{
-    background: #3e7294;
-    border: 2px solid var(--font-color);
+    cursor: pointer;
+    /* background-image: url(../images/img1.jpg); */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+    border: 5px solid var(--font-color);
     height: 400px;
     width: 400px;
     margin-top: 20%;
@@ -98,6 +102,44 @@ html{
     /* margin-left: 2%; */
     border-radius: 50%;
     overflow: hidden;
+    transition: 5s;
+
+    animation-name: animate;
+    animation-direction: alternate-reverse;
+    animation-duration: 10s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-play-state:running;
+    animation-timing-function: ease-in-out;
+}
+@keyframes animate{
+    0%{
+        /* background-image: url(../images/img1.jpg); */
+        border: 5px solid #354477;
+    }
+    20%{
+        /* background-image: url(../images/img2.JPG); */
+        border: 5px solid #33572e;
+    }
+    40%{
+        /* background-image: url(../images/img3.JPG); */
+        border: 5px solid rgb(122, 151, 62);
+    }
+    60%{
+        /* background-image: url(../images/img4.JPG); */
+        border: 5px solid #0082b9;
+    }
+    80%{
+        /* background-image: url(../images/img5.JPG); */
+        border: 5px solid #3f4372;
+    }
+    100%{
+        /* background-image: url(../images/img6.JPG); */
+        border: 5px solid #7e366c;
+    }
+}
+.img-container:hover img{
+    transform: scale(1.1,1.1);
 }
 /* ABOUT */
 #about{
@@ -111,17 +153,51 @@ html{
     font-size: 400%;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+#about-main{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+#about-icon{
+    width: 180px;
+    text-align: center;
+    /* justify-content: space-between; */
+    padding: 25px 15px;
+    box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03);
+    /* border: 1px solid #cce7d0; */
+    border-radius: 4px;
+    margin: 15px 35px;
+}
+#about-icon:hover{
+    box-shadow: 10px 10px 54px rgba(70, 62, 221, 0.3);
+}
 #about-icon i{
     font-size: 90px;
-    cursor: pointer;
+    /* cursor: pointer; */
     color: var(--icon-color);
 }
 #about-icon a{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-decoration: none;
-    color: var(--icon-color);
-    font-size: 20px;
+    display: inline-block;
+    padding: 9px 8px;
+    line-height: 1;
+    border-radius: 4px;
+    color: #088178;
+    background-color: #ffd9b2;
+    font-size: 15px;
     font-weight: 500;
-    margin-bottom: 60px;
+    cursor: pointer;
+}
+#about-icon:nth-child(2) a{
+    background-color: #cdebbc;
+}
+#about-icon:nth-child(3) a{
+    background-color: #cdd4f8;
+}
+#about-icon:nth-child(4) a{
+    background-color: #a5e4ff;
 }
 #about-icon a:hover{
     color: rgb(0, 174, 255);
@@ -227,7 +303,7 @@ html{
     font-weight: 600;
     margin-top:0;
     border-radius: 10px;
-    cursor: grabbing;
+    /* cursor: grabbing; */
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
 }
 /* .carousel #travelImg{
@@ -249,7 +325,7 @@ html{
     margin-bottom: 40px ;
 }
 .carousel .card i:hover{
-    background: rgb(77, 77, 77);
+    background: rgb(136, 165, 165);
 }
 .carousel .card-1{
     background: var(--pro-color);

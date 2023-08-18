@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            Coin picker
+        </title>
+        <style>
+            .highlight {
+                background-color: rgb(156, 233, 233);
+                color: rgb(233, 120, 182);
+            }
+            .container {
+                border: 5px solid;
+                width: 520px;
+                margin: 10px auto;
+                height: 600px;
+            }
+            .coin {
+                border: 1px solid;
+                width: 10px;
+                float: left;
+                margin: 5px;
+                padding: 15px;
+                border-radius: 50%;
+                font-weight: bold;
+                text-align: center;
+            }
+            .coinPicBtn {
+                width: 80px;
+                height: 40px;
+                text-align: center;
+                background: greenyellow;
+            }
+            .pickedCoin {
+                text-align: center;
+                width: 200px;
+                height: 200px;
+                padding: 10px;
+                margin: 20px;
+                font-weight: bold;
+                font-size: 20px;
+                border: 1px solid;
+                background: yellow;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="button" value="Pick a Coin" class="coinPicBtn" onclick="pickUniqueCoin()">
+        <span class="pickedCoin"></span>
+        <div class="container"> </div> 
+        <script>
+            var pickedCoinsList = [];
+            var renderCoinsToBoard = () => {
+                for (var i = 1; i <= 100; i++) {
+                    var divTag = document.createElement("div");
+                    divTag.setAttribute("class", 'coin')
+                    divTag.setAttribute("id", 'coin_' + i)
+                    divTag.innerHTML = i;
+                    document.querySelector(".container").append(divTag);
+                }
+            }
+            var pickUniqueCoin = () => {
+                console.log(pickedCoinsList);
+                var maxcount = 100;
+                var randomCoin = Math.floor(Math.random() * maxcount);
+                pickedCoinsList.push(randomCoin);
+                document.querySelector(".pickedCoin").innerHTML = randomCoin;
+                highlightCoin(randomCoin);
+            }
+            var highlightCoin  = (coinValue) => {
+                id = '#coin_' + coinValue;
+                document.querySelector(id).classList.add("highlight");
+            }
+            renderCoinsToBoard();
+        </script>
+    </body>
+</html>

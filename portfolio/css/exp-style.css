@@ -53,10 +53,19 @@ html{
     border-radius: 50%;
 }
 /* HOME */
+#box{
+    /* border: 1px solid; */
+    height: 50%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
 #h1-home{
     font-size: 30px;
     font-weight: 600;
-    background-image: url(../portfolio/images/fontBack.jpeg);
+    background-image: url(../images/fontBack.jpeg);
     background-size: cover;
     background-position: center;
     background-clip: text;

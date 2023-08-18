@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Report Card</title>
+    <style>
+        body{
+            overflow: hidden;
+        }
+        h3{
+            text-align: center;
+            position: relative;
+            top: -15px;
+        }
+        .personal input{
+            margin: 2px;
+            border: none;
+            background: transparent;
+            border-bottom: 1px solid black ;
+            outline: none;
+        }
+        tr th input{
+            width: 80px;
+            border: none;
+            background: transparent;
+            outline: none;
+            text-align: center;
+        }
+        table{
+            border: 1px solid black;
+            text-align: center;
+            border-collapse: collapse;
+            position: relative;
+            top: 40px;
+            right: -35px;
+        }
+        th,td{
+                border: 1px solid black;
+        }
+        .container{
+            background-color: aqua;
+            width: 100vw;
+            height: 100vh;
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card{
+            width: 490px;
+            height: 480px;
+            color: #070707;
+            padding: 20px;
+            border: 5px solid black;
+            background: rgba(18, 69, 116, 0.2);
+            border-radius: 10px;
+        }
+        #div{
+            text-align: left;
+        }
+        #per{
+            text-align: left;
+        }
+        #gr{
+            position: relative;
+            top: -8px;
+        }
+        #re{
+            text-align: left;
+        }
+        input[type="button"]{
+            border: 2px solid;
+            outline: none;
+            height: 20px;
+            width: 60px;
+            color: #000000;
+            font-weight: 700;
+            border-radius: 10px;
+            background: transparent;
+            margin-top: 5px;
+            position: relative;
+            top: 320px;
+            right: -430px;
+        }
+        #class{
+            outline: none;
+            background: transparent;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h3>PROGRESS REPORT CARD</h3>
+            <div class="personal">
+                <strong>Name:</strong>
+                <input type="text" id="name" required><br>
+                <strong>Class:</strong>
+                <select id="class" required>
+                    <option value="class I">Class I</option>
+                    <option value="class II">Class II</option>
+                    <option value="class III">Class III</option>
+                    <option value="class IV">Class IV</option>
+                    <option value="class V">Class V</option>
+                    <option value="class VI">Class VI</option>
+                </select><br>
+                <!-- <input type="" id="class"><br> -->
+                <strong>Roll No.:</strong>
+                <input type="text" id="roll" required><br>
+                <strong>Gender:</strong>
+                <input type="radio" name="gender" value="male">Male
+                <input type="radio" name="gender" value="female">Female
+            </div>
+                <div class="data">
+                <table>
+                <tr>
+                    <th>Sl.No</th>
+                    <th>Subject Name</th>
+                    <th>Max.Mark</th>
+                    <th>Min.Mark</th>
+                    <th>Obtain Mark</th>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <th>Telugu</th>
+                    <th>100</th>
+                    <th>30</th>
+                    <th><input type="text" id="teluguM" onkeypress="return validateUserData(event)"></th>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <th>English</th>
+                    <th>100</th>
+                    <th>30</th>
+                    <th><input type="text" id="engM" onkeypress="return validateUserData(event)"></th>
+                </tr>
+                <tr>
+                    <th>3</th>
+                    <th>Mathematics</th>
+                    <th>100</th>
+                    <th>30</th>
+                    <th><input type="text" id="mathM" onkeypress="return validateUserData(event)"></th>
+                </tr>
+                <tr>
+                    <th>4</th>
+                    <th>Chemistry</th>
+                    <th>100</th>
+                    <th>30</th>
+                    <th><input type="text" id="cheM" onkeypress="return validateUserData(event)"></th>
+                </tr>
+                <tr>
+                    <th>5</th>
+                    <th>Physics</th>
+                    <th>100</th>
+                    <th>30</th>
+                    <th><input type="text" id="phyM" onkeypress="return validateUserData(event)"></th>
+                </tr>
+                <tr>
+                    <th>6</th>
+                    <th>IT</th>
+                    <th>100</th>
+                    <th>30</th>
+                    <th><input type="text" id="itM" onkeypress="return validateUserData(event)"></th>
+                </tr>
+                <tr>
+                    <th rowspan="3" id="gr">Grade<br><span id="gra"></span></th>
+                    <th>Total</th>
+                    <th>600</th>
+                    <th>180</th>
+                    <th id><span id="result"></span></th>
+                </tr>
+                <tr>
+                    <th colspan="2" id="div">Division:<span id="divi"></span></th>
+                    <th colspan="2" id="per">Percentage:<span id="p"></span></th>
+                </tr>
+                <tr>
+                    <th colspan="4" id="re">Remark:<span id="rem"></span></th>
+                </tr>
+                <input type="button" value="Submit" onclick="doOperation();">
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        var m1, m2, m3, m4, m5, m6;
+        var doOperation = () => {
+                m1 = document.querySelector("#teluguM").value;
+                m1 = parseInt(m1);
+                m2 = document.querySelector("#engM").value;
+                m2 = parseInt(m2);
+                m3 = document.querySelector("#mathM").value;
+                m3 = parseInt(m3);
+                m4 = document.querySelector("#cheM").value;
+                m4 = parseInt(m4);
+                m5 = document.querySelector("#phyM").value;
+                m5 = parseInt(m5);
+                m6 = document.querySelector("#itM").value;
+                m6 = parseInt(m6);
+                total = m1 + m2 + m3 + m4 + m5 + m6;
+                perc = (total/600)*100;
+                document.querySelector("#result").innerText = total;
+                document.querySelector("#p").innerText = perc;
+
+                // MARK
+                if(m1<30 && m2<30 && m3<30 && m4<30 && m5<30 && m6<30){
+                    document.querySelector("#rem").innerText = "Fail";
+                }else{
+                    document.querySelector("#rem").innerText = "Pass";
+                }
+                //remark
+                if(perc<30)
+                {
+                    document.querySelector("#rem").innerText = "Fail";
+                }
+                else{
+                    document.querySelector("#rem").innerText = "Pass";
+                }
+
+                //grade
+                if(perc>=90)
+                {
+                    document.querySelector("#gra").innerText = "A+";
+                }
+                else if(perc>=80)
+                {
+                    document.querySelector("#gra").innerText = "A";
+                }
+                else if(perc>=70)
+                {
+                    document.querySelector("#gra").innerText = "B+";
+                }
+                else if(perc>=60)
+                {
+                    document.querySelector("#gra").innerText = "B";
+                }
+                else if(perc>=50)
+                {
+                    document.querySelector("#gra").innerText = "C";
+                }
+                else if(perc>=30)
+                {
+                    document.querySelector("#gra").innerText = "E";
+                }
+                else
+                {
+                    document.querySelector("#gra").innerText = "F";
+                }
+
+                //division
+                if(perc>=60)
+                {
+                    document.querySelector("#divi").innerText = "1st";
+                }
+                else if(perc>=50)
+                {
+                    document.querySelector("#divi").innerText = "2nd";
+                }
+                else if(perc>=30)
+                {
+                    document.querySelector("#divi").innerText = "3rd";
+                }
+                else
+                {
+                    document.querySelector("#divi").innerText = "";
+                }
+        }
+        //  var validateUserData = (event) => {
+        //         if (event.charCode >= 48 && event.charCode <= 57){
+        //             return true; 
+        //         } else {
+        //             return false;
+        //         }
+        //     }
+    </script>
+</body>
+</html>

@@ -59,6 +59,12 @@ html{
     overflow: hidden;
     background: var(--body-color);
 }
+#hob{
+    display: flex;
+    justify-content: center;
+    color: #007bff;
+    font-family: 'Times New Roman', Times, serif;
+}
 .wrapper{
     /* background: red; */
     margin: 100px auto;
